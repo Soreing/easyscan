@@ -169,6 +169,7 @@ func makeScanRow(
 			"    for _, col := range cols {\n" +
 			"        switch col.Name() {\n" +
 			strings.Join(vals, "\n") + "\n" +
+			"        }\n" +
 			"    }\n" +
 			"    return row.Scan(dests...)\n" +
 			"}\n" +
