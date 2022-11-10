@@ -158,7 +158,7 @@ func makeScanRow(
 	if anyorder {
 		for i := 0; i < len(fields); i++ {
 			vals[i] = "        case\"" + aliases[i] + "\":\n" +
-				"            dets[di] = &o." + fields[i]
+				"            dests[di] = &o." + fields[i]
 		}
 		return "func (o *" + name + ") ScanRow(row easyscan.Scannable) error {\n" +
 			"    dests, di := make([]interface{}, " + strconv.Itoa(len(vals)) + "), 0\n" +
