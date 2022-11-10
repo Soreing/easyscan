@@ -140,11 +140,9 @@ func (v *visitor) Visit(n ast.Node) (w ast.Visitor) {
 			name := n.Name.String()
 			switch t := n.Type.(type) {
 			case *ast.StructType:
-				fmt.Println("STRUCT TYPE", name)
 				st := newStruct(name, t)
 				v.Structs = append(v.Structs, st)
 			case *ast.ArrayType:
-				fmt.Println("ARRAY TYPE DEF", name)
 				if lt, err := newList(name, t); err == nil {
 					v.Lists = append(v.Lists, lt)
 				}
