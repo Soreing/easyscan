@@ -76,7 +76,7 @@ func (g *Generator) AddScanStruct(st Struct) {
 	aliases := []string{}
 
 	for _, field := range st.fields {
-		alias, omit := parseTag(field.tag)
+		alias, omit := parseTag(strings.Trim(field.tag, "`"))
 		if !omit {
 			if alias == "" {
 				alias = caseString(field.name, g.defaultCase)
@@ -202,4 +202,3 @@ func makeScanAppendRow(
 		"    return nil\n" +
 		"}\n"
 }
-
